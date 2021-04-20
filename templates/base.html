@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
-        integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA==" crossorigin="anonymous" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
@@ -12,8 +11,27 @@
     <title>What to Watch</title>
 </head>
 <body>
-
-
+    <nav class="nav-extended text-shadow deep-purple accent-4">
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo"><i class="large material-icons">movie_filter</i> WtW </a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="#">Browse</a></li>
+            <li><a href="#">Add</a></li>
+            <li><a href="#">Manage</a></li>
+            <a class="waves-effect waves-light btn-large" href="#">Login</a>
+          </ul>
+        </div>
+    </nav>
+     
+      <ul class="sidenav" id="mobile-demo">
+        <h3 class="center-align">Menu</h3>
+        <li><a href="#" class="center-align">Browse</a></li>
+        <li><a href="#" class="center-align">Add</a></li>
+        <li><a href="#" class="center-align">Manage</a></li>
+        <li><a class="waves-effect waves-light btn-large center-align" href="#">Login</a></li>
+      </ul>
+    
 
     <section>
         <!-- flash messages -->
