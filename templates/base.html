@@ -13,36 +13,46 @@
     <title>What to Watch</title>
 </head>
 <body>
-    <nav class="nav-extended text-shadow deep-purple accent-4">
-        <div class="nav-wrapper">
-          <a href="#!" class="brand-logo"><i class="large material-icons">movie_filter</i> WtW </a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="#">Browse</a></li>
-            <li><a href="#">Add</a></li>
-            <li><a href="#">Manage</a></li>
-            <a class="waves-effect waves-light btn-large" href="#">Login</a>
-          </ul>
-        </div>
-    </nav>
-     
-      <ul class="sidenav" id="mobile-demo">
-        <h3 class="center-align">Menu</h3>
-        <li><a href="#" class="center-align">Browse</a></li>
-        <li><a href="#" class="center-align">Add</a></li>
-        <li><a href="#" class="center-align">Manage</a></li>
-        <li><a class="waves-effect waves-light btn-large center-align" href="#">Login</a></li>
-      </ul>
     
+    <header>
+        <!-- Navbar -->
+        <nav class="nav-extended text-shadow deep-purple accent-4">
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo"><i class="large material-icons">movie_filter</i> WtW </a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#">Browse</a></li>
+                    <li><a href="#">Add</a></li>
+                    <li><a href="#">Manage</a></li>
+                    <a class="waves-effect waves-light btn-large" href="#">Login</a>
+                </ul>
+            </div>
+        </nav>
+        
+        <!-- Mobile side navbar-->
+        <ul class="sidenav" id="mobile-demo">
+            <h3 class="center-align">Menu</h3>
+            <li><a href="#" class="center-align">Browse</a></li>
+            <li><a href="#" class="center-align">Add</a></li>
+            <li><a href="#" class="center-align">Manage</a></li>
+            <li><a class="waves-effect waves-light btn-large center-align" href="#">Login</a></li>
+        </ul>
+    </header>
 
     <section>
-        <!-- flash messages -->
+        <!-- Flash messages cards -->
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
-                    <div class="row flashes">
-                        <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
+                <div class="row">
+                    <div class="col s12 center-align">
+                      <div class="card deep-purple accent-1">
+                        <div class="card-content white-text">
+                          <span class="card-title">{{ message }}</span>
+                        </div>
+                      </div>
                     </div>
+                  </div>
                 {% endfor %}
             {% endif %}
         {% endwith %}
@@ -53,6 +63,7 @@
         {% endblock %}
     </main>
 
+    <!-- Sticky footer -->
     <footer class="page-footer deep-purple accent-4">
         <div class="footer-copyright">
           <div class="container">

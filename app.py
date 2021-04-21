@@ -21,9 +21,8 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    genre = list(mongo.db.genre.find())
-    flash(genre)
-    return render_template("home.html", tasks=genre)
+    flash("This is a flash test")
+    return render_template("home.html")
 
 
 if __name__ == "__main__":
