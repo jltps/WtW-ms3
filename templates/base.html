@@ -21,7 +21,7 @@
                 <a href="#!" class="brand-logo"><i class="large material-icons">movie_filter</i> WtW </a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#">Browse</a></li>
+                    <li><a href="{{ url_for('browse') }}">Browse</a></li>
                     <li><a href="#">Add</a></li>
                     <li><a href="#">Manage</a></li>
                     <a class="waves-effect waves-light btn-large" href="#">Login</a>
@@ -32,7 +32,7 @@
         <!-- Mobile side navbar-->
         <ul class="sidenav" id="mobile-demo">
             <h3 class="center-align">Menu</h3>
-            <li><a href="#" class="center-align">Browse</a></li>
+            <li><a href="{{ url_for('browse') }}" class="center-align">Browse</a></li>
             <li><a href="#" class="center-align">Add</a></li>
             <li><a href="#" class="center-align">Manage</a></li>
             <li><a class="waves-effect waves-light btn-large center-align" href="#">Login</a></li>
