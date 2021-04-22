@@ -25,6 +25,12 @@ def home():
     return render_template("home.html")
 
 
+@app.route("/browse")
+def get_titles():
+    titles = list(mongo.db.titles.find())
+    return render_template("browse.html", titles=titles)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -76,12 +82,6 @@ def logout():
     flash("Logged out")
     session.pop("user")
     return redirect(url_for("home"))
-
-
-@app.route("/browse")
-def browse():
-    tasks = list(mongo.db.titles.find())
-    return render_template("browse.html", tasks=tasks)
 
 
 if __name__ == "__main__":
