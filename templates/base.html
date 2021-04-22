@@ -24,7 +24,7 @@
                     <li><a href="{{ url_for('browse') }}">Browse</a></li>
                     <li><a href="#">Add</a></li>
                     <li><a href="#">Manage</a></li>
-                    <a class="waves-effect waves-light btn-large" href="{{ url_for('register') }}">Login</a>
+                    <a class="waves-effect waves-light btn-large" href="{{ url_for('login') }}">Login</a>
                 </ul>
             </div>
         </nav>
@@ -35,7 +35,7 @@
             <li><a href="{{ url_for('browse') }}" class="center-align">Browse</a></li>
             <li><a href="#" class="center-align">Add</a></li>
             <li><a href="#" class="center-align">Manage</a></li>
-            <li><a class="waves-effect waves-light btn-large center-align" href="register">Login</a></li>
+            <li><a class="waves-effect waves-light btn-large center-align" href="{{ url_for('login') }}">Login</a></li>
         </ul>
     </header>
 
