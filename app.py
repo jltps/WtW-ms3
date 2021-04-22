@@ -42,7 +42,9 @@ def register():
         mongo.db.users.insert_one(register)
 
         session["user"] = request.form.get("username").lower()
-        flash("Registration successful")
+        flash("Registration successful. Welcome {}".format(
+            request.form.get("username")))
+        return redirect(url_for("browse"))
     return render_template("register.html")
 
 
@@ -57,6 +59,7 @@ def login():
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome {}".format(request.form.get("username")))
+                return redirect(url_for("browse"))
             else:
                 flash("Incorrect username and/or password")
                 return redirect(url_for("login"))
@@ -66,6 +69,13 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+@app.route("/logout")
+def logout():
+    flash("Logged out")
+    session.pop("user")
+    return redirect(url_for("home"))
 
 
 @app.route("/browse")

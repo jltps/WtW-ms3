@@ -22,9 +22,13 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('browse') }}">Browse</a></li>
-                    <li><a href="#">Add</a></li>
-                    <li><a href="#">Manage</a></li>
-                    <a class="waves-effect waves-light btn-large" href="{{ url_for('login') }}">Login</a>
+                    {% if session.user %}
+                        <li><a href="#">Add</a></li>
+                        <li><a href="#">Manage</a></li>
+                        <a href="{{ url_for('logout') }}" class="waves-effect waves-light btn-large red">Log out</a>
+                    {% else %}
+                        <a href="{{ url_for('login') }}" class="waves-effect waves-light btn-large">Log in</a>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
@@ -33,9 +37,13 @@
         <ul class="sidenav" id="mobile-demo">
             <h3 class="center-align">Menu</h3>
             <li><a href="{{ url_for('browse') }}" class="center-align">Browse</a></li>
-            <li><a href="#" class="center-align">Add</a></li>
-            <li><a href="#" class="center-align">Manage</a></li>
-            <li><a class="waves-effect waves-light btn-large center-align" href="{{ url_for('login') }}">Login</a></li>
+            {% if session.user %}
+                <li><a href="#" class="center-align">Add</a></li>
+                <li><a href="#" class="center-align">Manage</a></li>
+                <a href="{{ url_for('logout') }}" class="waves-effect waves-light btn-large red center-align">Log out</a>
+            {% else %}
+                <a href="{{ url_for('login') }}" class="waves-effect waves-light btn-large center-align">Log in</a>
+            {% endif %}
         </ul>
     </header>
 
