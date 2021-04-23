@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="purple-text center-align">Add a new title</h3>
+
+    <div class="row">
+        <form class="col s12 l8 offset-l2 z-depth-5" method="POST" action="">
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">local_movies</i>
+              <input id="icon_prefix" type="text" class="validate">
+              <label for="icon_prefix">Name of the title</label>
+            </div>
+            <div class="input-field col s6 offset-s3">
+                <input placeholder="Type" id="type_name" type="text" class="validate">
+                <label for="type_name">Type of content:</label>
+            </div>
+            <div class="input-field col s6 offset-s3">
+                <input placeholder="Year of release" id="release_year" type="text" class="validate">
+                <label for="release_year">Released in:</label>
+            </div>
+          </div>
+        </form>
+      </div>
+
+{% endblock %}

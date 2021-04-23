@@ -77,6 +77,11 @@ def login():
     return render_template("login.html")
 
 
+@app.route("/add_title")
+def add_title():
+    return render_template("add_title.html")
+
+
 @app.route("/logout")
 def logout():
     flash("Logged out")

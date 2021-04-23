@@ -23,7 +23,7 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_titles') }}">Browse</a></li>
                     {% if session.user %}
-                        <li><a href="#">Add</a></li>
+                        <li><a href="{{ url_for('add_title') }}">Add</a></li>
                         <li><a href="#">Manage</a></li>
                         <a href="{{ url_for('logout') }}" class="waves-effect waves-light btn-large red">Log out</a>
                     {% else %}
@@ -38,11 +38,11 @@
             <h3 class="center-align">Menu</h3>
             <li><a href="{{ url_for('get_titles') }}" class="center-align">Browse</a></li>
             {% if session.user %}
-                <li><a href="#" class="center-align">Add</a></li>
+                <li><a href="{{ url_for('add_title') }}" class="center-align">Add</a></li>
                 <li><a href="#" class="center-align">Manage</a></li>
-                <a href="{{ url_for('logout') }}" class="waves-effect waves-light btn-large red center-align">Log out</a>
+                <a href="{{ url_for('logout') }}" class="waves-effect waves-light btn-large red center">Log out</a>
             {% else %}
-                <a href="{{ url_for('login') }}" class="waves-effect waves-light btn-large center-align">Log in</a>
+                <a href="{{ url_for('login') }}" class="waves-effect waves-light btn-large center">Log in</a>
             {% endif %}
         </ul>
     </header>
