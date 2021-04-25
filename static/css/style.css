@@ -10,3 +10,8 @@ body {
 main {
     flex: 1 0 auto;
 }
+
+#added_by {
+    text-align: right;
+    font-weight: 300;
+}
