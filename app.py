@@ -80,13 +80,13 @@ def login():
 @app.route("/add_title", methods=["GET", "POST"])
 def add_title():
     if request.method == "POST":
-        # all_ages = "true" if request.form.get("all_ages") else "false"
+        all_ages = "yes" if request.form.get("all_ages") else "no"
         title = {
             "title_name": request.form.get("title_name"),
             "type_name": request.form.get("title_types"),
             "genre_name": request.form.get("genres"),
             "platform_name": request.form.get("platforms"),
-            # "all_ages": all_ages,
+            "all_ages": all_ages,
             "release_year": request.form.get("release_year"),
             "imdb": request.form.get("imdb"),
             "wtw": request.form.get("wtw"),
