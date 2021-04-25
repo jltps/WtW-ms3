@@ -13,30 +13,30 @@
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s12 m6 l6 offset-m3" required>
-                    <select>
-                      <option value="" disabled selected>Choose type of content</option>
-                      <option value="1">Option 1</option>
-                      <option value="2">Option 2</option>
-                      <option value="3">Option 3</option>
+                <div class="input-field col s12 m6 l6 offset-m3">
+                    <select id="title_types" name="title_types" class="validate" required>
+                        <option value="" disabled selected>Choose type of content</option>
+                        {% for title_type in title_types %}
+                            <option value="{{ title_type.type_name }}">{{ title_type.type_name }}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="input-field col s12 m6 l6 offset-m3" required>
-                    <select>
-                      <option value="" disabled selected>Choose genre</option>
-                      <option value="1">Option 1</option>
-                      <option value="2">Option 2</option>
-                      <option value="3">Option 3</option>
+                    <select id="genres" name="genres" class="validate" required>
+                        <option value="" disabled selected>Choose genre</option>
+                        {% for genre in genres %}
+                            <option value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
+                        {% endfor %}
                     </select>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12 m6 l6 offset-m3" required>
-                    <select>
-                      <option value="" disabled selected>Choose platform</option>
-                      <option value="1">Option 1</option>
-                      <option value="2">Option 2</option>
-                      <option value="3">Option 3</option>
+                    <select id="platforms" name="platforms" class="validate" required>
+                        <option value="" disabled selected>Choose platform</option>
+                        {% for platform in platforms %}
+                            <option value="{{ platform.platform_name }}">{{ platform.platform_name }}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="col s6 offset-s3 l6">

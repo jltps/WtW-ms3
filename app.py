@@ -79,7 +79,11 @@ def login():
 
 @app.route("/add_title")
 def add_title():
-    return render_template("add_title.html")
+    title_types = mongo.db.title_types.find().sort("title_name", 1)
+    genres = mongo.db.genre.find().sort("genre_name", 1)
+    platforms = mongo.db.platform.find().sort("platform_name", 1)
+    return render_template(
+        "add_title.html", title_types=title_types, genres=genres, platforms=platforms)
 
 
 @app.route("/logout")
