@@ -4,7 +4,8 @@
     <h3 class="purple-text center-align">Add a new title</h3>
 
     <div class="row">
-        <form class="col s12 m10 l8 offset-m1 offset-l2 z-depth-5" method="POST" action="">
+        <form class="col s12 m10 l8 offset-m1 offset-l2 z-depth-5" method="POST" action="{{ url_for('add_title') }}">
+            <!-- Title name -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">local_movies</i>
@@ -13,6 +14,7 @@
                 </div>
             </div>
             <div class="row">
+                <!-- Choose type dropdown -->
                 <div class="input-field col s12 m6 l6 offset-m3">
                     <select id="title_types" name="title_types" class="validate" required>
                         <option value="" disabled selected>Choose type of content</option>
@@ -21,6 +23,7 @@
                         {% endfor %}
                     </select>
                 </div>
+                <!-- Choose genre dropdown -->
                 <div class="input-field col s12 m6 l6 offset-m3" required>
                     <select id="genres" name="genres" class="validate" required>
                         <option value="" disabled selected>Choose genre</option>
@@ -30,6 +33,7 @@
                     </select>
                 </div>
             </div>
+            <!-- Choose platform dropdown -->
             <div class="row">
                 <div class="input-field col s12 m6 l6 offset-m3" required>
                     <select id="platforms" name="platforms" class="validate" required>
@@ -39,6 +43,7 @@
                         {% endfor %}
                     </select>
                 </div>
+                <!-- Suitable for all ages toggle -->
                 <div class="col s6 offset-s3 l6">
                     <p>
                         <label>
@@ -48,34 +53,46 @@
                     </p>
                 </div>
             </div>
+            <!-- Year of release -->
             <div class="row">
                 <div class="input-field col s6 offset-s3">
-                    <input placeholder="Year of release" id="release_year" type="text" pattern="^[0-9]{4,4}$" class="validate" required>
+                    <input placeholder="Year of release" id="release_year" name="release_year" type="text" pattern="^[0-9]{4,4}$" class="validate" required>
                     <label for="release_year">Released in:</label>
                 </div>
             </div>
+            <!-- IMDB link -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">language</i>
-                    <input placeholder="Please paste the link to the IMDB title page" id="imdb" name="imdb" type="text" pattern="^[0-9]{4,4}$" class="validate" required>
+                    <input placeholder="Please paste the link to the IMDB title page" id="imdb" name="imdb" type="text" class="validate" required>
                     <label for="imdb">IMDB link:</label>
                 </div>
             </div>
+            <!-- Title content link -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">language</i>
-                    <input placeholder="Please paste the link to where users can watch the title" id="wtw" name="wtw" type="text" pattern="^[0-9]{4,4}$" class="validate" required>
+                    <input placeholder="Please paste the link to where users can watch the title" id="wtw" name="wtw" type="text" class="validate" required>
                     <label for="wtw">Whatch here link:</label>
                 </div>
             </div>
+            <!-- Recomendation text -->
             <div class="row">
                 <div class="input-field col s12">
                     <textarea id="recommendation" placeholder="Explain users why do you recommend this title" name="recommendation" class="materialize-textarea" required></textarea>
                     <label for="recommendation">Recommendation:</label>
                 </div>
-            </div>  
+            </div> 
+            <!-- Submit button -->
+            <div class="row">
+                <div class="col s6 offset-s4">
+                    <button class="btn waves-effect waves-light" type="submit">Add title
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div> 
           </div>
         </form>
-      </div>
+    </div>
 
 {% endblock %}

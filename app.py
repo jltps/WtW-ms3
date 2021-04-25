@@ -77,8 +77,26 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/add_title")
+@app.route("/add_title", methods=["GET", "POST"])
 def add_title():
+    if request.method == "POST":
+        # all_ages = "true" if request.form.get("all_ages") else "false"
+        title = {
+            "title_name": request.form.get("title_name"),
+            "type_name": request.form.get("title_types"),
+            "genre_name": request.form.get("genres"),
+            "platform_name": request.form.get("platforms"),
+            # "all_ages": all_ages,
+            "release_year": request.form.get("release_year"),
+            "imdb": request.form.get("imdb"),
+            "wtw": request.form.get("wtw"),
+            "recommendation": request.form.get("recommendation"),
+            "created_by": session["user"]
+        }
+        mongo.db.titles.insert_one(title)
+        flash("Title Successfully Added")
+        return redirect(url_for("add_title"))
+
     title_types = mongo.db.title_types.find().sort("title_name", 1)
     genres = mongo.db.genre.find().sort("genre_name", 1)
     platforms = mongo.db.platform.find().sort("platform_name", 1)
