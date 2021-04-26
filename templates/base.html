@@ -24,6 +24,7 @@
                     <li><a href="{{ url_for('get_titles') }}">Browse</a></li>
                     {% if session.user %}
                         <li><a href="{{ url_for('add_title') }}">Add</a></li>
+                        <li><a href="{{ url_for('edit') }}">Edit</a></li>
                         <li><a href="#">Manage</a></li>
                         <a href="{{ url_for('logout') }}" class="waves-effect waves-light btn-large red">Log out</a>
                     {% else %}

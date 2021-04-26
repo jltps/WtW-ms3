@@ -133,6 +133,12 @@ def edit_title(title_id):
         "edit_title.html", title=title, title_types=title_types, genres=genres, platforms=platforms)
 
 
+@app.route("/edit")
+def edit():
+    titles = list(mongo.db.titles.find())
+    return render_template("edit.html", titles=titles)
+
+
 @app.route("/logout")
 def logout():
     flash("Logged out")
