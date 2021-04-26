@@ -104,6 +104,35 @@ def add_title():
         "add_title.html", title_types=title_types, genres=genres, platforms=platforms)
 
 
+@app.route("/edit_title/<title_id>", methods=["GET", "POST"])
+def edit_title(title_id):
+    if request.method == "POST":
+        all_ages = "yes" if request.form.get("all_ages") else "no"
+        submit = {
+            "title_name": request.form.get("title_name"),
+            "type_name": request.form.get("title_types"),
+            "genre_name": request.form.get("genres"),
+            "platform_name": request.form.get("platforms"),
+            "all_ages": all_ages,
+            "release_year": request.form.get("release_year"),
+            "imdb": request.form.get("imdb"),
+            "wtw": request.form.get("wtw"),
+            "recommendation": request.form.get("recommendation"),
+            "created_by": session["user"]
+        }
+        mongo.db.titles.update({"_id": ObjectId(title_id)}, submit)
+        flash("Title Successfully Updated")
+        return redirect(url_for("get_titles"))
+
+    title = mongo.db.titles.find_one({"_id": ObjectId(title_id)})
+
+    title_types = mongo.db.title_types.find().sort("title_name", 1)
+    genres = mongo.db.genre.find().sort("genre_name", 1)
+    platforms = mongo.db.platform.find().sort("platform_name", 1)
+    return render_template(
+        "edit_title.html", title=title, title_types=title_types, genres=genres, platforms=platforms)
+
+
 @app.route("/logout")
 def logout():
     flash("Logged out")
