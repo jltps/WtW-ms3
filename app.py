@@ -157,6 +157,19 @@ def manage_types():
     return render_template("manage_types.html", types=types)
 
 
+@app.route("/add_type", methods=["GET", "POST"])
+def add_type():
+    if request.method == "POST":
+        new_type = {
+            "type_name": request.form.get("type_name")
+        }
+        mongo.db.title_types.insert_one(new_type)
+        flash("New Type successfully added")
+        return redirect(url_for("manage_types"))
+
+    return render_template("add_type.html")
+
+
 @app.route("/manage_genres")
 def manage_genres():
     genres = list(mongo.db.genre.find().sort("genre_name", 1))
