@@ -195,6 +195,19 @@ def manage_platforms():
     return render_template("manage_platforms.html", platforms=platforms)
 
 
+@app.route("/add_platform", methods=["GET", "POST"])
+def add_platform():
+    if request.method == "POST":
+        new_platform = {
+            "platform_name": request.form.get("platform_name")
+        }
+        mongo.db.platform.insert_one(new_platform)
+        flash("New Platform successfully added")
+        return redirect(url_for("manage_platforms"))
+
+    return render_template("add_platform.html")
+
+
 @app.route("/logout")
 def logout():
     flash("Logged out")
