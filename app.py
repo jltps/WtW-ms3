@@ -146,6 +146,29 @@ def delete_title(title_id):
     return redirect(url_for("get_titles"))
 
 
+@app.route("/manage")
+def manage():
+    return render_template("manage.html")
+
+
+@app.route("/manage_types")
+def manage_types():
+    types = list(mongo.db.title_types.find().sort("type_name", 1))
+    return render_template("manage_types.html", types=types)
+
+
+@app.route("/manage_genres")
+def manage_genres():
+    genres = list(mongo.db.genre.find().sort("genre_name", 1))
+    return render_template("manage_genres.html", genres=genres)
+
+
+@app.route("/manage_platforms")
+def manage_platforms():
+    platforms = list(mongo.db.platform.find().sort("platform_name", 1))
+    return render_template("manage_platforms.html", platforms=platforms)
+
+
 @app.route("/logout")
 def logout():
     flash("Logged out")

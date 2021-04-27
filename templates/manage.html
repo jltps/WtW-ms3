@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="purple-text center-align">What would you like to manage?</strong></h3>
+
+    <div class="row">
+        <div class="col s12 m4">
+            <div class="card deep-purple lighten-1">
+                <div class="card-content white-text">
+                    <span class="card-title center align">Types</span>
+                </div>
+                <div class="card-action center-align">
+                    <a class="waves-effect waves-light btn" href="{{ url_for('manage_types')}}">Manage</a>
+                </div>
+              </div>
+        </div>  
+        <div class="col s12 m4">
+            <div class="card deep-purple lighten-1">
+                <div class="card-content white-text">
+                    <span class="card-title center align">Genres</span>
+                </div>
+                <div class="card-action center-align">
+                    <a class="waves-effect waves-light btn" href="{{ url_for('manage_genres')}}">Manage</a>
+                </div>
+              </div>
+        </div> 
+        <div class="col s12 m4">
+            <div class="card deep-purple lighten-1">
+                <div class="card-content white-text">
+                    <span class="card-title center align">Platforms</span>
+                </div>
+                <div class="card-action center-align">
+                    <a class="waves-effect waves-light btn" href="{{ url_for('manage_platforms')}}">Manage</a>
+                </div>
+              </div>
+        </div>    
+    </div>
+
+{% endblock %}

@@ -25,7 +25,9 @@
                     {% if session.user %}
                         <li><a href="{{ url_for('add_title') }}">Add</a></li>
                         <li><a href="{{ url_for('edit') }}">Edit</a></li>
-                        <li><a href="#">Manage</a></li>
+                        {% if session.user|lower == "admin"|lower %}
+                            <li><a href="{{ url_for('manage') }}">Manage</a></li>
+                        {% endif %}
                         <a href="{{ url_for('logout') }}" class="waves-effect waves-light btn-large red">Log out</a>
                     {% else %}
                         <a href="{{ url_for('login') }}" class="waves-effect waves-light btn-large">Log in</a>
@@ -40,10 +42,13 @@
             <li><a href="{{ url_for('get_titles') }}" class="center-align">Browse</a></li>
             {% if session.user %}
                 <li><a href="{{ url_for('add_title') }}" class="center-align">Add</a></li>
-                <li><a href="#" class="center-align">Manage</a></li>
-                <a href="{{ url_for('logout') }}" class="waves-effect waves-light btn-large red center">Log out</a>
+                <li><a href="{{ url_for('edit') }}" class="center-align">Edit</a></li>
+                {% if session.user|lower == "admin"|lower %}
+                    <li><a href="{{ url_for('manage') }}" class="center-align">Manage</a></li>
+                {% endif %}
+                <a href="{{ url_for('logout') }}" class="waves-effect waves-light btn-large red center-align">Log out</a>
             {% else %}
-                <a href="{{ url_for('login') }}" class="waves-effect waves-light btn-large center">Log in</a>
+                <a href="{{ url_for('login') }}" class="waves-effect waves-light btn-large center-align">Log in</a>
             {% endif %}
         </ul>
     </header>

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="purple-text center-align">Manage Types of Titles</strong></h3>
+
+    <div class="row center">
+        <a class="btn-floating btn-large waves-effect waves-light blue darken-1 tooltipped" data-position="right" data-tooltip="Add a new Type"><i class="material-icons">add</i></a>
+    </div>
+
+    <div class="row">
+        {% for type in types %}
+            <div class="col s12 m6 l4">
+                <div class="card deep-purple lighten-1">
+                    <div class="card-content white-text">
+                        <span class="card-title center align">{{ type.type_name }}</span>
+                    </div>
+                    <div class="row center">
+                        <div class="card-action">
+                            <a href="#" class="waves-effect waves-light btn"><i class="material-icons left">edit</i>Edit</a>
+                            <a href="#" class="waves-effect waves-light btn red"><i class="material-icons left">delete_forever</i>Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        {% endfor %}
+    </div>
+    <div class="row center">
+        <a href="{{ url_for('manage') }}" class="waves-effect waves-light cyan darken-3 btn-large"><i class="material-icons right">arrow_back</i>Back to Manage Menu</a>
+    </div>
+
+{% endblock %}
