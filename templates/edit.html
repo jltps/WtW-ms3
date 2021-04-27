@@ -41,11 +41,6 @@
                                 <span class="card-title grey-text text-darken-4">This is why this title is recommended:<i class="material-icons right">close</i></span>
                                 <p>{{ title.recommendation }}</p>
                             </div>
-                            <div class="row">
-                                <div class="col s8 offset-s3">
-                                    <a href="{{ url_for('edit', title_id=title._id) }}" class="waves-effect waves-light btn-large"><i class="material-icons left">edit</i>Edit Title</a>
-                                </div>  
-                            </div>
                         </div>
                         <div class="card-action">
                             <a href="{{ title.imdb }}" target="_blank" class="waves-effect waves-light btn-small black-text yellow accent-1">IMDB</a>
