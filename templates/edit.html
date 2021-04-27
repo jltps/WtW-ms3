@@ -51,62 +51,18 @@
                             <a href="{{ title.imdb }}" target="_blank" class="waves-effect waves-light btn-small black-text yellow accent-1">IMDB</a>
                             <a href="{{ title.wtw }}" target="_blank" class="right waves-effect waves-light btn-small white-text deep-purple darken-3">Watch here</a>
                         </div>
-                        <div class="row center">
-                            <a href="{{ url_for('edit_title', title_id=title._id) }}" class="waves-effect waves-light btn-large"><i class="material-icons left">edit</i>Edit Title</a>
+                        <div class="row">
+                            <div class="col s6 center">
+                                <a href="{{ url_for('edit_title', title_id=title._id) }}" class="waves-effect waves-light btn-large"><i class="material-icons left">edit</i>Edit Title</a>
+                            </div>
+                            <div class="col s6 center">
+                                <a href="{{ url_for('delete_title', title_id=title._id) }}" class="waves-effect waves-light btn-large red"><i class="material-icons left">delete_forever</i>Delete Title</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                {% elif session.user|lower == "admin" %}
-                <div class="col s12 l6">
-                    <div class="card purple lighten-5">
-                        <div class="card-content">
-                            <span class="card-title activator z-depth-2 indigo lighten-5 text-darken-5 center">{{ title.title_name }}<i class="material-icons right">more_vert</i></span>
-                            <div class="row">
-                                <div class="col s6 offset-s3 z-depth-1 grey lighten-5 center-align">
-                                    <p>{{ title.type_name }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col s12 m6 z-depth-1 grey lighten-5 center-align">
-                                    <p>Genre: {{ title.genre_name }}</p>
-                                </div>
-                                <div class="col s12 m6 z-depth-1 grey lighten-5 center-align">
-                                    <p>Released in: {{ title.release_year }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col s12 m6">
-                                    {% if title.all_ages == "yes" %}
-                                        <i class="fas fa-users prefix deep-purple-text text-accent-2">   - For all ages -</i>
-                                    {% else %}
-                                        <i class="fas fa-users-slash prefix deep-purple-text text-accent-2">   - Not for children -</i>
-                                    {% endif %}
-                                </div>
-                                <div class="col s12 m6">
-                                    <p id="added_by"><em>added by: {{ title.created_by }}</em></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-reveal grey lighten-3">
-                            <div class="row">
-                                <span class="card-title grey-text text-darken-4">This is why this title is recommended:<i class="material-icons right">close</i></span>
-                                <p>{{ title.recommendation }}</p>
-                            </div>
-                            <div class="row">
-                                <div class="col s8 offset-s3">
-                                    <a href="{{ url_for('edit', title_id=title._id) }}" class="waves-effect waves-light btn-large"><i class="material-icons left">edit</i>Edit Title</a>
-                                </div>  
-                            </div>
-                        </div>
-                        <div class="card-action">
-                            <a href="{{ title.imdb }}" target="_blank" class="waves-effect waves-light btn-small black-text yellow accent-1">IMDB</a>
-                            <a href="{{ title.wtw }}" target="_blank" class="right waves-effect waves-light btn-small white-text deep-purple darken-3">Watch here</a>
-                        </div>
-                        <div class="row center">
-                            <a href="{{ url_for('edit_title', title_id=title._id) }}" class="waves-effect waves-light btn-large"><i class="material-icons left">edit</i>Edit Title</a>
-                        </div>
-                    </div>
-                </div>
+                
+
             {% endif %}
         {% endfor %}
      
