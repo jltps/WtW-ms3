@@ -139,6 +139,13 @@ def edit():
     return render_template("edit.html", titles=titles)
 
 
+@app.route("/delete_title/<title_id>")
+def delete_title(title_id):
+    mongo.db.titles.remove({"_id": ObjectId(title_id)})
+    flash("Title Successfully Deleted")
+    return redirect(url_for("get_titles"))
+
+
 @app.route("/logout")
 def logout():
     flash("Logged out")
