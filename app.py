@@ -176,6 +176,19 @@ def manage_genres():
     return render_template("manage_genres.html", genres=genres)
 
 
+@app.route("/add_genre", methods=["GET", "POST"])
+def add_genre():
+    if request.method == "POST":
+        new_genre = {
+            "genre_name": request.form.get("genre_name")
+        }
+        mongo.db.genre.insert_one(new_genre)
+        flash("New Genre successfully added")
+        return redirect(url_for("manage_genres"))
+
+    return render_template("add_genre.html")
+
+
 @app.route("/manage_platforms")
 def manage_platforms():
     platforms = list(mongo.db.platform.find().sort("platform_name", 1))
