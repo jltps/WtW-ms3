@@ -28,9 +28,9 @@
                         {% if session.user|lower == "admin"|lower %}
                             <li><a href="{{ url_for('manage') }}">Manage</a></li>
                         {% endif %}
-                        <a href="{{ url_for('logout') }}" class="waves-effect waves-light btn-large red">Log out</a>
+                            <li><a href="{{ url_for('logout') }}" class="waves-effect waves-light btn-large red">Log out</a></li>
                     {% else %}
-                        <a href="{{ url_for('login') }}" class="waves-effect waves-light btn-large">Log in</a>
+                        <li><a href="{{ url_for('login') }}" class="waves-effect waves-light btn-large">Log in</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -46,9 +46,9 @@
                 {% if session.user|lower == "admin"|lower %}
                     <li><a href="{{ url_for('manage') }}" class="center-align">Manage</a></li>
                 {% endif %}
-                <a href="{{ url_for('logout') }}" class="waves-effect waves-light btn-large red center-align">Log out</a>
+                <li><a href="{{ url_for('logout') }}" class="waves-effect waves-light btn-large red center-align">Log out</a></li>
             {% else %}
-                <a href="{{ url_for('login') }}" class="waves-effect waves-light btn-large center-align">Log in</a>
+                <li><a href="{{ url_for('login') }}" class="waves-effect waves-light btn-large center-align">Log in</a></li>
             {% endif %}
         </ul>
     </header>
