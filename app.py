@@ -170,6 +170,13 @@ def add_type():
     return render_template("add_type.html")
 
 
+@app.route("/delete_type/<type_id>")
+def delete_type(type_id):
+    mongo.db.title_types.remove({"_id": ObjectId(type_id)})
+    flash("Type Successfully Deleted")
+    return redirect(url_for("manage_types"))
+
+
 @app.route("/manage_genres")
 def manage_genres():
     genres = list(mongo.db.genre.find().sort("genre_name", 1))
