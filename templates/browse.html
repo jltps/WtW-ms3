@@ -3,6 +3,26 @@
 
     <h3 class="purple-text center-align">Browse Titles</h3>
 
+    <div class="row card-panel grey lighten-5">
+        <form action="{{ url_for('search') }}" method="post" class="col s12">
+            <div class="row valign-wrapper center-align">
+                <div class="input-field col s12 m8">
+                    <i class="material-icons prefix">search</i>
+                    <input type="text" name="query" id="query" minlength="3" class="validate" required>
+                    <label for="query">Search Titles</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">You can also search for types, genres, year of release or username</span>
+                </div>
+                <div class="col s12 m4">
+                    <a href="{{ url_for('get_titles') }}" class="red btn text-shadow">Reset</a>
+                    <button type="submit" class="light-blue darken-1 btn text-shadow">
+                        <i class="material-icons right">search</i> Search
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div> 
+
+    {% if titles|length > 0 %}
     <div class="row">
         {% for title in titles %}
         <div class="col s12 l6">
@@ -69,5 +89,8 @@
         {% endfor %}
      
     </div>
+    {% else %}
+        <h3 class="red-text center-align">No results found</h3>
+    {% endif %}
 
 {% endblock %}
