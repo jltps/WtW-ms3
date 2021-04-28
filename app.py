@@ -222,6 +222,13 @@ def add_platform():
     return render_template("add_platform.html")
 
 
+@app.route("/delete_platform/<platform_id>")
+def delete_platform(platform_id):
+    mongo.db.platform.remove({"_id": ObjectId(platform_id)})
+    flash("Platform Successfully Deleted")
+    return redirect(url_for("manage_platforms"))
+
+
 @app.route("/logout")
 def logout():
     flash("Logged out")
