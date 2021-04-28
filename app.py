@@ -196,6 +196,13 @@ def add_genre():
     return render_template("add_genre.html")
 
 
+@app.route("/delete_genre/<genre_id>")
+def delete_genre(genre_id):
+    mongo.db.genre.remove({"_id": ObjectId(genre_id)})
+    flash("Genre Successfully Deleted")
+    return redirect(url_for("manage_genres"))
+
+
 @app.route("/manage_platforms")
 def manage_platforms():
     platforms = list(mongo.db.platform.find().sort("platform_name", 1))
