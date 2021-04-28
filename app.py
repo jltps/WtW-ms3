@@ -102,6 +102,10 @@ def add_title():
         }
         mongo.db.titles.insert_one(title)
         flash("Title Successfully Added")
+
+        mongo.db.titles.drop_indexes()
+        mongo.db.titles.create_index([("title_name", "text"), ("genre_name", "text"), (
+            "type_name", "text"), ("platform_name", "text"), ("release_year", "text"), ("created_by", "text")])
         return redirect(url_for("add_title"))
 
     title_types = mongo.db.title_types.find().sort("title_name", 1)
@@ -129,6 +133,10 @@ def edit_title(title_id):
         }
         mongo.db.titles.update({"_id": ObjectId(title_id)}, submit)
         flash("Title Successfully Updated")
+
+        mongo.db.titles.drop_indexes()
+        mongo.db.titles.create_index([("title_name", "text"), ("genre_name", "text"), (
+            "type_name", "text"), ("platform_name", "text"), ("release_year", "text"), ("created_by", "text")])
         return redirect(url_for("get_titles"))
 
     title = mongo.db.titles.find_one({"_id": ObjectId(title_id)})
@@ -150,6 +158,10 @@ def edit():
 def delete_title(title_id):
     mongo.db.titles.remove({"_id": ObjectId(title_id)})
     flash("Title Successfully Deleted")
+
+    mongo.db.titles.drop_indexes()
+    mongo.db.titles.create_index([("title_name", "text"), ("genre_name", "text"), (
+        "type_name", "text"), ("platform_name", "text"), ("release_year", "text"), ("created_by", "text")])
     return redirect(url_for("get_titles"))
 
 
