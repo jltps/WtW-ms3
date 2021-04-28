@@ -170,6 +170,21 @@ def add_type():
     return render_template("add_type.html")
 
 
+@app.route("/edit_type/<type_id>", methods=["GET", "POST"])
+def edit_type(type_id):
+    if request.method == "POST":
+        new_type = {
+            "type_name": request.form.get("type_name")
+        }
+        mongo.db.title_types.update(
+            {"_id": ObjectId(type_id)}, new_type)
+        flash("Type Successfully Updated")
+        return redirect(url_for("manage_types"))
+
+    this_type = mongo.db.title_types.find_one({"_id": ObjectId(type_id)})
+    return render_template("edit_type.html", type_id=this_type)
+
+
 @app.route("/delete_type/<type_id>")
 def delete_type(type_id):
     mongo.db.title_types.remove({"_id": ObjectId(type_id)})

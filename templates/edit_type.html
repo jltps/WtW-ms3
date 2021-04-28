@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="purple-text center-align">Edit Type</h3>
+
+    <div class="row">
+        <form class="col s12 m10 l8 offset-m1 offset-l2 z-depth-5" method="POST" action="{{ url_for('edit_type', type_id=type_id._id) }}">
+            <!-- Type name -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">add_box</i>
+                    <input id="type_name" name="type_name" type="text" value="{{ type_id.type_name}}" class="validate" required>
+                    <label for="type_name">Type name</label>
+                </div>
+            </div>
+            <!-- Submit button -->
+            <div class="row">
+                <div class="col s6 offset-s4">
+                    <button class="btn-large waves-effect waves-light" type="submit">Save Changes
+                        <i class="material-icons right">save</i>
+                    </button>
+                </div>
+            </div> 
+          </div>
+        </form>
+    </div>
+    <div class="row center">
+        <a href="{{ url_for('manage_types') }}" class="waves-effect waves-light cyan darken-3 btn-large"><i class="material-icons right">arrow_back</i>Cancel Edit</a>
+    </div>
+
+{% endblock %}
