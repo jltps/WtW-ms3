@@ -115,6 +115,12 @@ def add_title():
         "add_title.html", title_types=title_types, genres=genres, platforms=platforms)
 
 
+@app.route("/edit")
+def edit():
+    titles = list(mongo.db.titles.find())
+    return render_template("edit.html", titles=titles)
+
+
 @app.route("/edit_title/<title_id>", methods=["GET", "POST"])
 def edit_title(title_id):
     if request.method == "POST":
@@ -146,12 +152,6 @@ def edit_title(title_id):
     platforms = mongo.db.platform.find().sort("platform_name", 1)
     return render_template(
         "edit_title.html", title=title, title_types=title_types, genres=genres, platforms=platforms)
-
-
-@app.route("/edit")
-def edit():
-    titles = list(mongo.db.titles.find())
-    return render_template("edit.html", titles=titles)
 
 
 @app.route("/delete_title/<title_id>")
