@@ -17,7 +17,7 @@
                     <div class="row center">
                         <div class="card-action">
                             <a href="{{ url_for('edit_genre', genre_id=genre._id) }}" class="waves-effect waves-light btn"><i class="material-icons left">edit</i>Edit</a>
-                            <a href="#delete_genre_modal" class="waves-effect waves-light btn red modal-trigger"><i class="material-icons left">delete_forever</i>Delete</a>
+                            <a href="#delete_genre_{{genre._id}}" class="waves-effect waves-light btn red modal-trigger"><i class="material-icons left">delete_forever</i>Delete</a>
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
             
             <!-- Delete Confirmation Modal Structure -->
 
-            <div id="delete_genre_modal" class="modal">
+            <div id="delete_genre_{{genre._id}}" class="modal">
                 <div class="modal-content">
                     <h4>Confirm Delete</h4>
                     <p>Are you sure you want to delete? This action is irreversible!</p>
