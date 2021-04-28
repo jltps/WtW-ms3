@@ -206,7 +206,7 @@ def edit_type(type_id):
 
 @app.route("/delete_type/<type_id>")
 def delete_type(type_id):
-    mongo.db.title_types.remove({"_id": ObjectId(type_id)})
+    mongo.db.title_types.delete_one({"_id": ObjectId(type_id)})
     flash("Type Successfully Deleted")
     return redirect(url_for("manage_types"))
 
@@ -247,7 +247,7 @@ def edit_genre(genre_id):
 
 @app.route("/delete_genre/<genre_id>")
 def delete_genre(genre_id):
-    mongo.db.genre.remove({"_id": ObjectId(genre_id)})
+    mongo.db.genre.delete_one({"_id": ObjectId(genre_id)})
     flash("Genre Successfully Deleted")
     return redirect(url_for("manage_genres"))
 
@@ -288,7 +288,7 @@ def edit_platform(platform_id):
 
 @app.route("/delete_platform/<platform_id>")
 def delete_platform(platform_id):
-    mongo.db.platform.remove({"_id": ObjectId(platform_id)})
+    mongo.db.platform.delete_one({"_id": ObjectId(platform_id)})
     flash("Platform Successfully Deleted")
     return redirect(url_for("manage_platforms"))
 
