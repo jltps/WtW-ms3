@@ -211,6 +211,21 @@ def add_genre():
     return render_template("add_genre.html")
 
 
+@app.route("/edit_genre/<genre_id>", methods=["GET", "POST"])
+def edit_genre(genre_id):
+    if request.method == "POST":
+        new_genre = {
+            "genre_name": request.form.get("genre_name")
+        }
+        mongo.db.genre.update(
+            {"_id": ObjectId(genre_id)}, new_genre)
+        flash("Genre Successfully Updated")
+        return redirect(url_for("manage_genres"))
+
+    this_genre = mongo.db.genre.find_one({"_id": ObjectId(genre_id)})
+    return render_template("edit_genre.html", genre_id=this_genre)
+
+
 @app.route("/delete_genre/<genre_id>")
 def delete_genre(genre_id):
     mongo.db.genre.remove({"_id": ObjectId(genre_id)})
