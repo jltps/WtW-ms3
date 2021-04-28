@@ -252,6 +252,21 @@ def add_platform():
     return render_template("add_platform.html")
 
 
+@app.route("/edit_platform/<platform_id>", methods=["GET", "POST"])
+def edit_platform(platform_id):
+    if request.method == "POST":
+        new_platform = {
+            "platform_name": request.form.get("platform_name")
+        }
+        mongo.db.platform.update(
+            {"_id": ObjectId(platform_id)}, new_platform)
+        flash("Platform Successfully Updated")
+        return redirect(url_for("manage_platforms"))
+
+    this_platform = mongo.db.platform.find_one({"_id": ObjectId(platform_id)})
+    return render_template("edit_platform.html", platform_id=this_platform)
+
+
 @app.route("/delete_platform/<platform_id>")
 def delete_platform(platform_id):
     mongo.db.platform.remove({"_id": ObjectId(platform_id)})
