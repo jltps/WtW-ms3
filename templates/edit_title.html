@@ -31,7 +31,7 @@
                 </div>
                 
                 <!-- Choose genre dropdown -->
-                <div class="input-field col s12 m6 l6 offset-m3" required>
+                <div class="input-field col s12 m6 l6 offset-m3">
                     <select id="genres" name="genres" class="validate" required>
                         <option value="" disabled>Choose genre</option>
                         {% for genre in genres %}
@@ -47,7 +47,7 @@
             
             <!-- Choose platform dropdown -->
             <div class="row">
-                <div class="input-field col s12 m6 l6 offset-m3" required>
+                <div class="input-field col s12 m6 l6 offset-m3">
                     <select id="platforms" name="platforms" class="validate" required>
                         <option value="" disabled>Choose platform</option>
                         {% for platform in platforms %}
@@ -114,7 +114,6 @@
                 <div class="col s12 center">
                     <a href="{{ url_for('get_titles') }}" class="btn-large red waves-effect waves-light" type="submit">Cancel
                         <i class="material-icons right">cancel</i></a>
-                    </button>
                     <button class="btn-large waves-effect waves-light" type="submit">Save changes
                         <i class="material-icons right">save</i>
                     </button>
