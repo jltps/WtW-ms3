@@ -119,15 +119,18 @@ def add_title():
         flash("Title Successfully Added")
 
         mongo.db.titles.drop_indexes()
-        mongo.db.titles.create_index([("title_name", "text"), ("genre_name", "text"), (
-            "type_name", "text"), ("platform_name", "text"), ("release_year", "text"), ("created_by", "text")])
+        mongo.db.titles.create_index(
+            [("title_name", "text"), ("genre_name", "text"), (
+                "type_name", "text"), ("platform_name", "text"), (
+                "release_year", "text"), ("created_by", "text")])
         return redirect(url_for("add_title"))
 
     title_types = mongo.db.title_types.find().sort("title_name", 1)
     genres = mongo.db.genre.find().sort("genre_name", 1)
     platforms = mongo.db.platform.find().sort("platform_name", 1)
     return render_template(
-        "add_title.html", title_types=title_types, genres=genres, platforms=platforms)
+        "add_title.html", title_types=title_types,
+        genres=genres, platforms=platforms)
 
 
 # Edit
@@ -157,8 +160,10 @@ def edit_title(title_id):
         flash("Title Successfully Updated")
 
         mongo.db.titles.drop_indexes()
-        mongo.db.titles.create_index([("title_name", "text"), ("genre_name", "text"), (
-            "type_name", "text"), ("platform_name", "text"), ("release_year", "text"), ("created_by", "text")])
+        mongo.db.titles.create_index([("title_name", "text"), (
+            "genre_name", "text"), ("type_name", "text"), (
+            "platform_name", "text"), ("release_year", "text"), (
+            "created_by", "text")])
         return redirect(url_for("get_titles"))
 
     title = mongo.db.titles.find_one({"_id": ObjectId(title_id)})
@@ -167,7 +172,8 @@ def edit_title(title_id):
     genres = mongo.db.genre.find().sort("genre_name", 1)
     platforms = mongo.db.platform.find().sort("platform_name", 1)
     return render_template(
-        "edit_title.html", title=title, title_types=title_types, genres=genres, platforms=platforms)
+        "edit_title.html", title=title, title_types=title_types,
+        genres=genres, platforms=platforms)
 
 
 @app.route("/delete_title/<title_id>")
@@ -176,8 +182,10 @@ def delete_title(title_id):
     flash("Title Successfully Deleted")
 
     mongo.db.titles.drop_indexes()
-    mongo.db.titles.create_index([("title_name", "text"), ("genre_name", "text"), (
-        "type_name", "text"), ("platform_name", "text"), ("release_year", "text"), ("created_by", "text")])
+    mongo.db.titles.create_index([("title_name", "text"), (
+        "genre_name", "text"), ("type_name", "text"), (
+        "platform_name", "text"), ("release_year", "text"), (
+        "created_by", "text")])
     return redirect(url_for("get_titles"))
 
 
