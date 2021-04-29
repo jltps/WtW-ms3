@@ -24,3 +24,8 @@ main {
 #wtw_logo {
     margin-left: 15px;
 }
+
+#github_logo {
+    padding-left: 5px;
+    padding-right: 5px;
+}
