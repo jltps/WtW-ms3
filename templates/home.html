@@ -1,7 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="purple-text center-align">You are Home</h3>
+    <div id="home_button" class="row center">
+        <a href="#home_modal" class="btn-floating btn-large waves-effect waves-light light-blue darken-1 tooltipped pulse modal-trigger" 
+            data-position="right" data-tooltip="How to use"><i class="material-icons">play_circle_filled</i></a>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="home_modal" class="modal">
+        <div class="modal-content">
+            <div class="card">
+                <h4 class="card-title center-align deep-purple lighten-5 deep-purple-text text-accent-4"><strong>What to Watch app</strong></h4>
+            </div>
+            <p class="center-align">This is the place where you and your group of friends can share and find recommendations for content to watch in your spare time.</p>
+            <p class="center-align">You can start browsing the available recommendations right now, but to post your own you need to create an account and log in.</p>
+        </div>
+            <div class="modal-footer deep-purple lighten-5">
+            <a href="{{ url_for('get_titles') }}" class="modal-close waves-effect waves-green btn">Browse</a>
+            <a href="{{ url_for('register') }}" class="modal-close waves-effect waves-green red btn ">Register</a>
+        </div>
+    </div>
+
 
     <img class="responsive-img" src="https://res.cloudinary.com/djn4bzqse/image/upload/v1619659407/wtw_hero_huezqn.jpg">
 
