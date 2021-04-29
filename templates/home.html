@@ -17,7 +17,11 @@
         </div>
             <div class="modal-footer deep-purple lighten-5">
             <a href="{{ url_for('get_titles') }}" class="modal-close waves-effect waves-green btn">Browse</a>
-            <a href="{{ url_for('register') }}" class="modal-close waves-effect waves-green red btn ">Register</a>
+            {% if session.user %}
+                <a href="{{ url_for('already_logged_in') }}" class="modal-close waves-effect waves-green red btn ">Register</a>
+            {% else %}
+                <a href="{{ url_for('register') }}" class="modal-close waves-effect waves-green red btn ">Register</a>
+            {% endif %}
         </div>
     </div>
 

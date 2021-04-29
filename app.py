@@ -83,6 +83,12 @@ def login():
     return render_template("login.html")
 
 
+@app.route("/already_logged_in")
+def already_logged_in():
+    flash("Already logged in")
+    return redirect(url_for("get_titles"))
+
+
 @app.route("/add_title", methods=["GET", "POST"])
 def add_title():
     if request.method == "POST":
