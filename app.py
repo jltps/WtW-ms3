@@ -22,6 +22,8 @@ mongo = PyMongo(app)
 def page_not_found(e):
     return render_template('404.html'), 404
 
+# Home
+
 
 @app.route("/")
 @app.route("/home")
@@ -29,6 +31,7 @@ def home():
     return render_template("home.html")
 
 
+# Browse
 @app.route("/browse")
 def get_titles():
     titles = list(mongo.db.titles.find())
@@ -42,6 +45,7 @@ def search():
     return render_template("browse.html", titles=titles)
 
 
+# Register/Login
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -94,6 +98,7 @@ def already_logged_in():
     return redirect(url_for("get_titles"))
 
 
+# Add_
 @app.route("/add_title", methods=["GET", "POST"])
 def add_title():
     if request.method == "POST":
@@ -125,6 +130,7 @@ def add_title():
         "add_title.html", title_types=title_types, genres=genres, platforms=platforms)
 
 
+# Edit
 @app.route("/edit")
 def edit():
     titles = list(mongo.db.titles.find())
@@ -175,11 +181,13 @@ def delete_title(title_id):
     return redirect(url_for("get_titles"))
 
 
+# Manage
 @app.route("/manage")
 def manage():
     return render_template("manage.html")
 
 
+# Manage_Types
 @app.route("/manage_types")
 def manage_types():
     types = list(mongo.db.title_types.find().sort("type_name", 1))
@@ -221,6 +229,7 @@ def delete_type(type_id):
     return redirect(url_for("manage_types"))
 
 
+# Manage_Genres
 @app.route("/manage_genres")
 def manage_genres():
     genres = list(mongo.db.genre.find().sort("genre_name", 1))
@@ -262,6 +271,7 @@ def delete_genre(genre_id):
     return redirect(url_for("manage_genres"))
 
 
+# Manage_Platforms
 @app.route("/manage_platforms")
 def manage_platforms():
     platforms = list(mongo.db.platform.find().sort("platform_name", 1))

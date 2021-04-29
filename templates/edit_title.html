@@ -5,6 +5,7 @@
 
     <div class="row">
         <form class="col s12 m10 l8 offset-m1 offset-l2 z-depth-5" method="POST" action="{{ url_for('edit_title', title_id=title._id) }}">
+            
             <!-- Title name -->
             <div class="row">
                 <div class="input-field col s12">
@@ -14,6 +15,7 @@
                 </div>
             </div>
             <div class="row">
+                
                 <!-- Choose type dropdown -->
                 <div class="input-field col s12 m6 l6 offset-m3">
                     <select id="title_types" name="title_types" class="validate" required>
@@ -27,6 +29,7 @@
                         {% endfor %}
                     </select>
                 </div>
+                
                 <!-- Choose genre dropdown -->
                 <div class="input-field col s12 m6 l6 offset-m3" required>
                     <select id="genres" name="genres" class="validate" required>
@@ -41,6 +44,7 @@
                     </select>
                 </div>
             </div>
+            
             <!-- Choose platform dropdown -->
             <div class="row">
                 <div class="input-field col s12 m6 l6 offset-m3" required>
@@ -55,6 +59,7 @@
                         {% endfor %}
                     </select>
                 </div>
+                
                 <!-- Suitable for all ages toggle -->
                 <div class="input-field col s6 offset-s3 l6">
                     <p>
@@ -69,6 +74,7 @@
                     </p>
                 </div>
             </div>
+            
             <!-- Year of release -->
             <div class="row">
                 <div class="input-field col s6 offset-s3">
@@ -76,6 +82,7 @@
                     <label for="release_year">Released in:</label>
                 </div>
             </div>
+            
             <!-- IMDB link -->
             <div class="row">
                 <div class="input-field col s12">
@@ -84,6 +91,7 @@
                     <label for="imdb">IMDB link:</label>
                 </div>
             </div>
+            
             <!-- Title content link -->
             <div class="row">
                 <div class="input-field col s12">
@@ -92,6 +100,7 @@
                     <label for="wtw">Whatch here link:</label>
                 </div>
             </div>
+            
             <!-- Recomendation text -->
             <div class="row">
                 <div class="input-field col s12">
@@ -99,6 +108,7 @@
                     <label for="recommendation">Recommendation:</label>
                 </div>
             </div> 
+            
             <!-- Submit button -->
             <div class="row">
                 <div class="col s12 center">
@@ -109,8 +119,8 @@
                         <i class="material-icons right">save</i>
                     </button>
                 </div>
-            </div> 
-          </div>
+            </div>
+
         </form>
     </div>
 
