@@ -5,7 +5,7 @@
 
 # About WtW (Or What to Watch (Or even Where to Watch)) 
 
-You and your group of friends love movies and TV shows and you share the same kind of tastes. This is frequqently the topic of conversationand you love recommending your lastest discoveries. As you love following their recommendations.
+You and your group of friends love movies and TV shows and you share the same kind of tastes. This is frequently the topic of conversation and you love recommending your lastest discoveries. As you love following their recommendations.
 
 WtW is the best way to make this information available between yourselves at all times.You just need to add a cosy couch, some popcorn and 2 hours or so of quality free time.
  
@@ -95,8 +95,9 @@ This is a short description of the main features implemented in the project, and
 - **Registered User Functionalites** - when a user is logged in he gains access to the Add and Edit tabs, and this allows them to post new title, change them and delete them. Edit and delete are only allowed if the title was created by the user in session
 - **Admin User Functionalities** - when admin user is logged in he gains access to the Manage tabs, and this allows him to add, edit and delete title types, genres and platforms. Admin user can also edit or delete any title, even if it wasn't created by him
   - FOR EVALUTATION PURPOSES ONLY: to test admin functionalities you can use admin as login and adminadmin as the password
-- **Search** - llows user to search the database for title name, type, genre, platform, year of release and the user who created the title
+- **Search** - allows user to search the database for title name, type, genre, platform, year of release and the user who created the title
 - **Search Index Update** - whenever a title is added, edited or deleted a new search index is created replacing the old one, so that search results are always up to date
+- **Delete Confirmation Modal** - all delete operations pop up a modal confirmation dialog to avoid unwanted deletion of records
 - **Card Reveal Functionalities** - in Browse, when users click the 3 dot icon the card reveals the recommendation text. Also, if the user is admin or the title is created by the same user, it reveals the edit and delete buttons.
 - **404 Custom Page** - the website displays a custom designed page when it gets a 404 error
 - **Custom Favicon** - the website displays a custom favicon in the browser tab 
@@ -114,7 +115,7 @@ This is a short description of the main features implemented in the project, and
 
 ## Database 
 
-This project uses MongoDB, which is a document-oriented NoSQL database used for high volume data storage. Instead of using tables and rows as in the traditional relational databases, MongoDB makes use of collections and documents. Documents consist of key-value pairs which are the basic unit of data in MongoDB. Collections contain sets of documents and function which is the equivalent of relational database tables.
+This project uses MongoDB, which is a document-oriented NoSQL database used for high volume data storage. Instead of using tables and rows as in the traditional relational databases, MongoDB makes use of collections and documents. Documents consist of key-value pairs which are the basic unit of data in MongoDB. Collections contain sets of documents, which is the equivalent of relational database tables.
 For WtW 5 collections were needed, which are as follows:
 - **titles** - the main collection, used to store all the information required about the titles
 - **title_types** - used to store the types of titles
@@ -145,7 +146,9 @@ In this section there is a list of all the technologies used to build this proje
 - [Werkzeug](https://werkzeug.palletsprojects.com/en/1.0.x/) - for password security.
 - [Gunicorn](https://gunicorn.org/) - a Python WSGI server.
 - [BSON](http://bsonspec.org/) - to retrieve ObjectId in MongoDB from Python.
-- [GitHub](https://github.com) - for version control and codebase storage.
+- [dnspython](https://dnspython.readthedocs.io/en/latest/) - a DNS toolkit for Python.
+- [Git](https://git-scm.com/) - for version control.
+- [GitHub](https://github.com) - for cloud repository storage.
 - [Heroku](https://heroku.com) - for deployment of production application.
 - [Cloudinary](https://cloudinary.com/) - for online image storage.
 - [VS Code](https://code.visualstudio.com/) - IDE of choice.
@@ -283,7 +286,7 @@ In this section there is a list of all the technologies used to build this proje
               3. test cancel edit 
            4. test delete button
               1. test delete confirmation cancel
-              2. test delete confirmation confirm -> here I got an error one time of not deleting the correct document, but I was not able to reproduce the error or find anything wrong with the code
+              2. test delete confirmation confirm -> *here I got an error one time of not deleting the correct document, but I was not able to reproduce the error or find anything wrong with the code*
            5. test back button
        2.  test manage genres
            1. compare information displayed with database
