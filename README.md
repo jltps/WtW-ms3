@@ -94,7 +94,6 @@ This is a short description of the main features implemented in the project, and
 - **Password security** - passwords are salted and hashed using Werkzeug
 - **Registered User Functionalites** - when a user is logged in he gains access to the Add and Edit tabs, and this allows them to post new title, change them and delete them. Edit and delete are only allowed if the title was created by the user in session
 - **Admin User Functionalities** - when admin user is logged in he gains access to the Manage tabs, and this allows him to add, edit and delete title types, genres and platforms. Admin user can also edit or delete any title, even if it wasn't created by him
-  - FOR EVALUTATION PURPOSES ONLY: to test admin functionalities you can use admin as login and adminadmin as the password
 - **Search** - allows user to search the database for title name, type, genre, platform, year of release and the user who created the title
 - **Search Index Update** - whenever a title is added, edited or deleted a new search index is created replacing the old one, so that search results are always up to date
 - **Delete Confirmation Modal** - all delete operations pop up a modal confirmation dialog to avoid unwanted deletion of records
