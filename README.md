@@ -5,9 +5,9 @@
 
 # About WtW (Or What to Watch (Or even Where to Watch)) 
 
-You have a group of friends that share the same kind of taste in movies and are always recommending to each their lastest discoveries.
+You and your group of friends love movies and TV shows and you share the same kind of tastes. This is frequqently the topic of conversationand you love recommending your lastest discoveries. As you love following their recommendations.
 
-WtW is the best way to share with them your recommendations and also find out about the best way to pass the next two hours with your couch and some popcorn.
+WtW is the best way to make this information available between yourselves at all times.You just need to add a cosy couch, some popcorn and 2 hours or so of quality free time.
  
 ## User Experience (UX)
 
