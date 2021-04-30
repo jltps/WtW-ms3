@@ -108,6 +108,7 @@ This is a short description of the main features implemented in the project, and
 - **Watch Here links** - retrieve the Whatch Here links from the database or ideally from an API. In the current version, if the user doesn't insert a correct link when adding a title it will hurt the UX
 - **IMDB links** - retrieve IMDB links from the official API
 - **Upgrade User Authentication** - add more security, password confirmation, more fields like email, profile picture, etc.
+- **Overall UI/UX Fine Tune** - Add more images, transitions, animations, work on the styles and colours
 - **User Profile Page** - where the users can change password, upload own photo, check messages, etc.
 - **Messaging System** - where users can exchange messages with each other and admin 
 - **Comments on title cards** - users can add additional comments to the existing recommendation of other users' titles
@@ -152,6 +153,7 @@ In this section there is a list of all the technologies used to build this proje
 - [venv](https://docs.python.org/3/library/venv.html) - Python's built in virtual environment.
 - [Adobe XD](https://www.adobe.com/products/xd.html) - for wireframes.
 - [Adobe Photoshop](https://www.adobe.com/products/photoshop.html) - for image manipulation.
+- [TIDAL](https://tidal.com/) - For countless hours of streamed Hi-Fi music. Couldn't have done it without this :musical_note: :satisfied::notes:
 
 ## Testing
 
@@ -282,7 +284,7 @@ In this section there is a list of all the technologies used to build this proje
               3. test cancel edit 
            4. test delete button
               1. test delete confirmation cancel
-              2. test delete confirmation confirm
+              2. test delete confirmation confirm -> here I got an error one time of not deleting the correct document, but I was not able to reproduce the error or find anything wrong with the code
            5. test back button
        2.  test manage genres
            1. compare information displayed with database
@@ -358,24 +360,82 @@ If this section grows too long, you may want to split it off into a separate fil
 
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+This project was deployed locally while on development for testing purposes, and then deployedto Heroku for production mode.
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
+### Local Deployment
 
-In addition, if it is not obvious, you should also describe how to run your code locally.
+
+These are the necessary steps for local deployment: 
+1. Setup a virtual environment (not necessary but recommended) using the following command inside the project directory:
+   ```
+   python -m venv env
+   ```
+2. Activate the virtual environment using the following command:
+   ```
+   ./env/scripts/Activate.ps1
+   ```
+3. Install the requirements in the virtual environment:
+   ```
+   pip install -r requirements.txt
+   ```
+4. Create an env.py file to store environment variables:
+   ```
+   import os
+
+   os.environ.setdefault("IP", "0.0.0.0")
+   os.environ.setdefault("PORT", "5000")
+   os.environ.setdefault("SECRET_KEY", "some,random,secret,key_not,the,one,in,here")
+   os.environ.setdefault(
+      "MONGO_URI", "mongodb,link,with,the,collection,name,and,access,data")
+   os.environ.setdefault("MONGO_DBNAME", "name,of,the,collection")
+   ```
+6. Add env.py to the .gitignore so it won't get uploaded
+5. Run the application:
+   ```
+   python app.py
+   ```
+6. Access the application in a browser tab:
+   ```
+   localhost:5000
+   ```
+
+### Heroku Deployment
+
+These are the necessary steps for Heroku deployment: 
+
+1. Create a Procfile with the following content:
+   ```
+   web: gunicorn app:app
+   ```
+   (Remember to remove whitespace and blank lines)
+2. Log in to your [Heroku](https://id.heroku.com/login) account
+3. Create a new app, name it and choose the appropriate region
+4. Inside the app go to Settings
+5. Click on Reveal Config Vars
+6. Add each of the key value pairs, exactly the same as you have in the env.py file
+7. Go to the Deploy tab 
+8. Click on Github in Deployment Method and connect to your Github account
+9. In Automatic Deploys search and select the correct Github repository, and then click on Enable Automatic Deploys
+10. You can then click on Deply Branch, it takes a minute to build, and then you have the View button where you can open the deployed app.
+
+
 
 
 ## Credits
 
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+- [Stack Overflow](https://pt.stackoverflow.com/) was used numerous times to better understand and implement code
 
 ### Media
-- The photos used in this site were obtained from ...
+- The hero image was obtained from [The Telegraph](https://www.telegraph.co.uk/)
+- The favicon was obtained from [favicon.cc](https://www.favicon.cc/)
 
 ### Acknowledgements
 
-- I received inspiration for this project from X
+- The code logic was inspired by [Code Institute](https://codeinstitute.net/)'s Task Manager project
+
+### Thank yous :pray:
+- The developer community in general for the willingness to help others and making an infinite ammount of content available online and the Code Institute's Slack community in particular
+- The numerous and too many to mention content creators that produce valuable guides an tutorials
+- Code Institute Tutors for the precious insights in specific issues
+- My Mentor Maranatha Ilesanmi for always pointing me to the right direction.
