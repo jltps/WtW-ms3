@@ -1,8 +1,7 @@
 <h1 align="center">--- WtW ---</h1>
 <h1 align="center"><img src="https://res.cloudinary.com/djn4bzqse/image/upload/v1619659407/wtw_hero_huezqn.jpg" /></h1>
 
-:link:[ Live Website on Heroku](https://wtw-ms3.herokuapp.com/)
-:link:[ GitHub repository](https://github.com/jltps/WtW-ms3)
+## :link:[ Live Website on Heroku](https://wtw-ms3.herokuapp.com/)
 
 # About WtW (Or What to Watch (Or even Where to Watch)) 
 
@@ -438,4 +437,4 @@ These are the necessary steps for Heroku deployment:
 - The developer community in general for the willingness to help others and making an infinite ammount of content available online and the Code Institute's Slack community in particular
 - The numerous and too many to mention content creators that produce valuable guides an tutorials
 - Code Institute Tutors for the precious insights in specific issues
-- My Mentor Maranatha Ilesanmi for always pointing me to the right direction.
+- My Mentor Maranatha Ilesanmi for always pointing me to the right directio
